@@ -8,7 +8,7 @@ import { useStateValue } from "../../Store/StateProvider";
 
 const Header = () => {
   // reducer
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ basket }] = useStateValue();
 
   return (
     <div className={classes.Header}>

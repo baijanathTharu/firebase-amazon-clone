@@ -3,12 +3,13 @@ import classes from "./Product.module.css";
 import { useStateValue } from "../../Store/StateProvider";
 
 const Product = ({ id, title, image, price, rating }) => {
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ totalPrice }, dispatch] = useStateValue();
   // console.log("Basket>>> ", basket);
-  // dispatch an action to the data layer
+  // dispatch an action to push data to the data layer (store)
   const addToBasket = () => {
     dispatch({
       type: "ADD_TO_BASKET",
+      totalPrice: +totalPrice + +price,
       item: {
         id: id,
         title: title,
