@@ -30,9 +30,12 @@ const Header = () => {
         <input className={classes.Header__searchInput} type="text" />
         <SearchIcon className={classes.Header__searchIcon} />
       </div>
-      <div className={classes.Header__nav} onClick={authenticationHandler}>
+      <div className={classes.Header__nav}>
         <Link to={!user ? "/login" : "/logout"}>
-          <div className={classes.Header__option}>
+          <div
+            className={classes.Header__option}
+            onClick={authenticationHandler}
+          >
             {/* show authenticated user email */}
             <span className={classes.Header__lineOne}>
               {user ? `Hello ${user.email}` : "Hello Guest"}
