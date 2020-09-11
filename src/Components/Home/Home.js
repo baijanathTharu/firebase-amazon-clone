@@ -23,7 +23,7 @@ const Home = () => {
             title="The Lean Startup"
             price="19.99"
             image="https://images-na.ssl-images-amazon.com/images/I/81-QB7nDh4L.jpg"
-            rating={5}
+            rating={3}
           />
         </div>
         <div className={classes.Home__row}>
@@ -32,7 +32,7 @@ const Home = () => {
             title="The Lean Startup"
             price="19.99"
             image="https://images-na.ssl-images-amazon.com/images/I/81-QB7nDh4L.jpg"
-            rating={5}
+            rating={2}
           />{" "}
           <Product
             id="4"
@@ -46,7 +46,7 @@ const Home = () => {
             title="The Lean Startup"
             price="19.99"
             image="https://images-na.ssl-images-amazon.com/images/I/81-QB7nDh4L.jpg"
-            rating={5}
+            rating={4}
           />
         </div>
         <div className={classes.Home__row}>
@@ -55,7 +55,7 @@ const Home = () => {
             title="The Lean Startup"
             price="19.99"
             image="https://images-na.ssl-images-amazon.com/images/I/81-QB7nDh4L.jpg"
-            rating={5}
+            rating={1}
           />
         </div>
       </div>

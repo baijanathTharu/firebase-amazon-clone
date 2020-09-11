@@ -5,10 +5,17 @@ import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import { Link } from "react-router-dom";
 import { useStateValue } from "../../Store/StateProvider";
+import { auth } from "../../firebase";
 
 const Header = () => {
   // reducer
-  const [{ basket }] = useStateValue();
+  const [{ basket, user }] = useStateValue();
+
+  const authenticationHandler = () => {
+    if (user) {
+      auth.signOut();
+    }
+  };
 
   return (
     <div className={classes.Header}>
@@ -23,11 +30,18 @@ const Header = () => {
         <input className={classes.Header__searchInput} type="text" />
         <SearchIcon className={classes.Header__searchIcon} />
       </div>
-      <div className={classes.Header__nav}>
-        <div className={classes.Header__option}>
-          <span className={classes.Header__lineOne}>Hello Guest</span>
-          <span className={classes.Header__lineTwo}>Sign In</span>
-        </div>
+      <div className={classes.Header__nav} onClick={authenticationHandler}>
+        <Link to={!user ? "/login" : "/logout"}>
+          <div className={classes.Header__option}>
+            {/* show authenticated user email */}
+            <span className={classes.Header__lineOne}>
+              {user ? `Hello ${user.email}` : "Hello Guest"}
+            </span>
+            <span className={classes.Header__lineTwo}>
+              {user ? "Sign out" : "Sign In"}
+            </span>
+          </div>
+        </Link>
         <div className={classes.Header__option}>
           <span className={classes.Header__lineOne}>Returns</span>
           <span className={classes.Header__lineTwo}>Orders</span>
